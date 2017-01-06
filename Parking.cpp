@@ -1,6 +1,6 @@
 #include "Parking.h"
 
-	std::stack<string> Parking::get_models(){
+	/*std::stack<string> Parking::get_models(){
 			std::stack<string> models;
 			std::stack<Car> cars_tmp;
 			while(!cars.empty())

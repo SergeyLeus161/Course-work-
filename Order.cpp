@@ -1,5 +1,5 @@
 #include "Order.h"
 
-Order::Order(string c){
+Order::Order(Car c){
 	car = c;
 }

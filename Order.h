@@ -7,8 +7,8 @@ using namespace std;
 class Order
 {
 	public:
-		Order(string c);
-		string car;
+		Order(Car c);
+		Car car;
 	protected:
 };
 
