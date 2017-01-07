@@ -7,7 +7,7 @@ using namespace std;
 class Order
 {
 	public:
-		Order(Car c);//заказ +Автомобиль:
+		Order(Car c);//+РђРІС‚РѕРјРѕР±РёР»СЊ:
 		Car car;
 	protected:
 };
