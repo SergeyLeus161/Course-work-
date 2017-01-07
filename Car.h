@@ -14,7 +14,7 @@ class Car
 	public:
 		Car(string m, string dod, string c, int p);
 		string get_model(){
-			return model;
+		return model;
 		}
 		
 };

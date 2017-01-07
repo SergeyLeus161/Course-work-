@@ -7,7 +7,7 @@
 	        {
 	        	models.push(cars.top().get_model());
 	        	cars_tmp.push(cars.top());
-	                cars.pop();
+	            cars.pop();
 	        }
 	        return models;
 		}
