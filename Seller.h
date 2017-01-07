@@ -7,12 +7,12 @@ using namespace std;
 class Seller
 {
 	public:
-		void order_form(Client  from){ //+Сформировать_заказ(:от Клиент):Заказ
+		void order_form(Client  from){ //+РЎС„РѕСЂРјРёСЂРѕРІР°С‚СЊ_Р·Р°РєР°Р·(:РѕС‚ РљР»РёРµРЅС‚):Р—Р°РєР°Р·
 		}
-		void most_expensive_order(Client from){	 //+Самый_дорогой_заказ(:от Клиент):Заказ	
+		void most_expensive_order(Client from){	 //+РЎР°РјС‹Р№_РґРѕСЂРѕРіРѕР№_Р·Р°РєР°Р·(:РѕС‚ РљР»РёРµРЅС‚):Р—Р°РєР°Р·	
 		}
-		int percentage_of_sales; // Атрибут(поле)  Проценты_от_продаж:int
-		void sell(Order from); //+Продать(:от Заказ):покупка
+		int percentage_of_sales; //РђС‚СЂРёР±СѓС‚(РїРѕР»Рµ) РџСЂРѕС†РµРЅС‚С‹_РѕС‚_РїСЂРѕРґР°Р¶:int 
+		void sell(Order from); //+РџСЂРѕРѕРґС‚СЊ(:РѕС‚ Р—Р°РєР°Р·):РџРѕРєСѓРїРєР°
 	protected:
 };
 
