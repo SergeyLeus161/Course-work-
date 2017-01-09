@@ -8,12 +8,12 @@ using namespace std;
 class Seller
 {
 	public:
-		void order_form(Client  from){ //+Сформировать_заказ(:от Клиент):Заказ
+		void order_form(Client  from){
 		}
-		void most_expensive_order(Client from){	 //+Самый_дорогой_заказ(:от Клиент):Заказ	
+		void most_expensive_order(Client from){	
 		}
-		int percentage_of_sales; //Атрибут(поле) Проценты_от_продаж:int 
-		void sell(Order from); //+Проодть(:от Заказ):Покупка
+		int percentage_of_sales;
+		void sell(Order from); 
 	protected:
 };
 

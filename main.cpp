@@ -9,14 +9,14 @@ using namespace std;
 
 
 int main(int argc, char** argv) {
-	Order car2("BMW");
+/*	Order car2("BMW");
 	Car car1("audi", "green", "1232", 10);
 	//cout << car1.color;
 	Parking parking1;
 	parking1.cars.push(car1);
 	//cout << parking1.cars.top().color;
 	//cout << parking1.get_models().top();
-	cout << car2.car;
+	cout << car2.car; */
 	return 0;
 }
 //1.	ќпределить количество проданных автомобилей за мес€ц?
