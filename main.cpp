@@ -10,7 +10,7 @@ using namespace std;
 
 
 int main(int argc, char** argv) {
-		Car car1("audi", "green", "1232", 10);
+		Car car1("audi", "green", "1232", 10, 20000);
 		Order order1;
 		order1.cars.push(car1);
 		order1.cars.push(car1);
@@ -23,7 +23,7 @@ int main(int argc, char** argv) {
 		//cout << parking1.cars.top().color;
 	/*	cout << parking1.get_models().top();
 		cout << parking1.cars.size(); */
-		cout << accounting1.get_sold_cars_count();
+		cout << accounting1.get_revenue();
 	return 0;
 }
 //1.	ќпределить количество проданных автомобилей за мес€ц?
