@@ -6,8 +6,7 @@
 
 using namespace std;
 
-class Order
-{
+class Order {
 	public:
 		Car car;
 		Client client;

@@ -6,8 +6,7 @@
 
 using namespace std;
 
-class Parking
-{
+class Parking {
 	public:
 		std::stack<string> get_models();
 		std::stack<Car> cars;

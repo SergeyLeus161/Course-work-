@@ -4,8 +4,7 @@
 
 using namespace std;
 
-class Car
-{
+class Car {
 	private:
 		string model;
 		string date_of_delivery;
@@ -13,10 +12,10 @@ class Car
 		int percent;
 	public:
 		Car(string m, string dod, string c, int p);
-		string get_model(){
+		string get_model() {
 			return model;
 		}
-		
+
 };
 
 #endif

@@ -5,15 +5,14 @@
 
 using namespace std;
 
-class Seller
-{
+class Seller {
 	public:
-		void order_form(Client  from){
+		void order_form(Client  from) {
 		}
-		void most_expensive_order(Client from){	
+		void most_expensive_order(Client from) {
 		}
 		int percentage_of_sales;
-		void sell(Order from); 
+		/*	void sell(Order from); */
 	protected:
 };
 

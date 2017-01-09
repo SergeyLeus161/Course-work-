@@ -7,8 +7,7 @@
 
 using namespace std;
 
-class Accounting
-{
+class Accounting {
 	private:
 		std::stack<Order> orders;
 	public:
@@ -17,7 +16,7 @@ class Accounting
 		string get_popular_brands();
 		string get_most_popular_color();
 		int get_average_purchase_price();
-		int get_sold_cars_count(); 
+		int get_sold_cars_count();
 	protected:
 };
 
