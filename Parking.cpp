@@ -8,5 +8,6 @@ std::stack<string> Parking::get_models() {
 		cars_tmp.push(cars.top());
 		cars.pop();
 	}
+	cars = cars_tmp;
 	return models;
 }

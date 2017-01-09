@@ -9,8 +9,8 @@ using namespace std;
 
 class Accounting {
 	private:
-		std::stack<Order> orders;
 	public:
+		std::stack<Order> orders;
 		Seller get_leader_seller();
 		int get_enterprise_revenue();
 		string get_popular_brands();

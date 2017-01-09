@@ -8,7 +8,7 @@ using namespace std;
 
 class Order {
 	public:
-		Car car;
+		stack<Car> cars;
 		Client client;
 	protected:
 };
