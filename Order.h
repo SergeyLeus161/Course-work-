@@ -9,6 +9,7 @@ class Order
 	public:
 		Order(Car c);//+Автомобиль:
 		Car car;
+		Client();
 	protected:
 };
 
