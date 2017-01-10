@@ -11,6 +11,7 @@ class Order {
 	public:
 		std::stack<Car> cars;
 		Client client;
+		int order_price();
 	protected:
 };
 
