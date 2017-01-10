@@ -14,21 +14,25 @@ int main(int argc, char** argv) {
 		Car car2("BMW", "black", "2343", 20, 15000);
 		Order order1;
 		order1.cars.push(car1);
-		order1.cars.push(car1);
+		Order order2;
+		order2.cars.push(car1);
+		order2.cars.push(car2);
+		Order order3;
 		//cout << car1.color;
 		Parking parking1;
 		parking1.cars.push(car1);
 		Accounting accounting1;
 		accounting1.orders.push(order1);
-		accounting1.orders.push(order1); 
+		accounting1.orders.push(order2);
+		accounting1.orders.push(order3); 
 		Order order_price1;
 		order_price1.cars.push(car1);
 		order_price1.cars.push(car2);
 		//cout << parking1.cars.top().color;
 	/*	cout << parking1.get_models().top();
 		cout << parking1.cars.size(); */
-	/*	cout << accounting1.get_revenue(); */
-		cout << order_price1.order_price();
+		cout << accounting1.get_revenue(); 
+	/*	cout << order_price1.order_price(); */
 	return 0;
 }
 //1.	ќпределить количество проданных автомобилей за мес€ц?

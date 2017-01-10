@@ -16,15 +16,8 @@ int Accounting::get_revenue() {
 	int revenue;
 	std::stack<Order> orders_tmp;
 	while (!orders.empty()) {
-		Order o =  orders.top();
-		stack<Car> cs = o.cars;
-		std::stack<Car> cars_tmp;
-		while (!cs.empty()) {
-			revenue = cs.top().get_price() + revenue;
-			cars_tmp.push(cs.top());
-			cs.pop();
-		}
-		o.cars = cars_tmp;
+		Order o = orders.top();
+		revenue = o.order_price() + revenue;
 		orders_tmp.push(o);
 		orders.pop();
 	}
