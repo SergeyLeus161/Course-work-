@@ -8,7 +8,6 @@
 using namespace std;
 
 class Accounting {
-	private:
 	public:
 		std::stack<Order> orders;
 		Seller get_leader_seller();

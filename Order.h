@@ -3,12 +3,13 @@
 #include <string>
 #include "Car.h"
 #include "Client.h"
+#include <stack>
 
 using namespace std;
 
 class Order {
 	public:
-		stack<Car> cars;
+		std::stack<Car> cars;
 		Client client;
 	protected:
 };
