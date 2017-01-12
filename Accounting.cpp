@@ -25,3 +25,7 @@ int Accounting::get_revenue() {
 	return revenue;
 }
 
+int Accounting::get_average_purchase_price() {
+	return get_revenue() / orders.size();
+}
+
