@@ -7,12 +7,12 @@ using namespace std;
 
 class Seller {
 	public:
-		void order_form(Client  from) {
+		string name;
+		Seller() {
 		}
-		void most_expensive_order(Client from) {
+		Seller(string n) {
+			name = n;
 		}
-		int percentage_of_sales;
-		/*	void sell(Order from); */
 	protected:
 };
 

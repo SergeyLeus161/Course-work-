@@ -8,8 +8,12 @@ using namespace std;
 
 class Parking {
 	public:
-		std::stack<string> get_models();
-		std::stack<Car> cars;
+		Parking() {
+			stack<Car> cs;
+			cars = cs;
+		}
+		stack<string> get_models();
+		stack<Car> cars;
 		void add_car(const Car& c);
 	protected:
 };

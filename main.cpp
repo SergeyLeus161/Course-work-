@@ -12,17 +12,18 @@ using namespace std;
 
 
 int main(int argc, char** argv) {
-	Company company;
-	Car c1("a", "-", "-", 1, 2);
-	company.add_car(c1);
-	Car c2("b", "-", "-", 1, 2);
-	company.add_car(c2);
-	cout << company.sold_models().size();
-	
-	company.parking.cars.pop();
-	cout << company.sold_models().size();
-	company.parking.cars.pop();
-	cout << company.sold_models().size();
+	stack<Seller> ss;
+	Seller s1("n1");
+	ss.push(s1);
+	Seller s2("n2");
+	ss.push(s2);
+	Company company(ss);
+	Client cl;
+	Order o1 = company.prepareOrder(cl);
+	Order o2 = company.prepareOrder(cl);
+	Order o3 = company.prepareOrder(cl);
+	Order o4 = company.prepareOrder(cl);
+	cout << o1.seller.name << o2.seller.name << o3.seller.name << o4.seller.name;
 	return 0;
 }
 //1.	ќпределить количество проданных автомобилей за мес€ц?

@@ -3,13 +3,15 @@
 #include <string>
 #include "Car.h"
 #include "Client.h"
+#include "Seller.h"
 #include <stack>
 
 using namespace std;
 
 class Order {
 	public:
-		std::stack<Car> cars;
+		Seller seller;
+		stack<Car> cars;
 		Client client;
 		int order_price();
 	protected:
