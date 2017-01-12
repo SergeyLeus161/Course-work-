@@ -11,3 +11,9 @@ std::stack<string> Parking::get_models() {
 	cars = cars_tmp;
 	return models;
 }
+
+void Parking::add_car(const Car& c) {
+	std::stack<Car> cars_tmp = cars;
+	cars_tmp.push(c);
+	cars = cars_tmp;
+}

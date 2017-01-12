@@ -1,5 +1,6 @@
 #include "Company.h"
 
+
 std::stack<string> Company::sold_models() {
 	std::stack<string> p_models = parking.get_models();
 	std::stack<string> all;
@@ -18,5 +19,19 @@ std::stack<string> Company::sold_models() {
 		p_models.pop();
 	}
 	return all;
+}
+
+void Company::add_car(Car c) {
+	parking.add_car(c);
+	std::stack<string> ms;
+	ms = cars_models;
+	while (!ms.empty()) {
+		string m = ms.top();
+		if (m == c.get_model()) {
+			return;
+		}
+		ms.pop();
+	}
+	cars_models.push(c.get_model());
 }
 

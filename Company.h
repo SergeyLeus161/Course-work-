@@ -14,6 +14,7 @@ class Company
 		Parking parking;
 		std::stack<string> cars_models;
 		std::stack<string> sold_models();
+		void add_car(Car c);
 	protected:
 };
 

@@ -13,17 +13,16 @@ using namespace std;
 
 int main(int argc, char** argv) {
 	Company company;
-	company.cars_models;
-	company.cars_models.push("a");
-	company.cars_models.push("b");
+	Car c1("a", "-", "-", 1, 2);
+	company.add_car(c1);
+	Car c2("b", "-", "-", 1, 2);
+	company.add_car(c2);
+	cout << company.sold_models().size();
 	
-	Parking parking;
-	Car c("a", "-", "-", 1, 2);
-	parking.cars.push(c);
-	company.parking = parking;
-	
-	
-	cout << company.sold_models().top();
+	company.parking.cars.pop();
+	cout << company.sold_models().size();
+	company.parking.cars.pop();
+	cout << company.sold_models().size();
 	return 0;
 }
 //1.	ќпределить количество проданных автомобилей за мес€ц?
