@@ -2,16 +2,18 @@
 #define COMPANY_H
 #include <string>
 #include <stack>
+#include "Accounting.h"
+#include "Parking.h"
 
 using namespace std;
 
 class Company
 {
 	public:
-		string accounting;
-		string parking;
+		Accounting accounting;
+		Parking parking;
 		std::stack<string> cars_models;
-		string sold_models();
+		std::stack<string> sold_models();
 	protected:
 };
 
