@@ -18,25 +18,21 @@ int main(int argc, char** argv) {
 	Seller s2("n2");
 	ss.push(s2);
 	Company company(ss);
-	Car car("b", "b", "c", 1, 2);
+	Car car("b", "b", "c", 1, 4);
 	company.add_car(car);
 	
 	Client cl;
 	Order o1 = company.prepare_order(cl);
 	
-	Car car2("b", "b", "c", 1, 2);
+	Car car2("b", "b", "e", 1, 2);
 	company.add_car(car2);
-	Car car3("a", "b", "c", 1, 2);
+	Car car3("a", "b", "c", 1, 3);
 	company.add_car(car3);
 	o1.cars.push(car);
 	o1.cars.push(car2);	
 	o1.cars.push(car3);
-	company.checkout(o1);
-	cout << "most selling is "
-		<< company.most_selling();
-//	cout << company.parking.get_models().size();
-//	company.checkout(o1);
-//	cout << company.parking.get_models().size();
+	cout << "most expensive "
+		<< o1.most_expensive();
 	return 0;
 }
 //1.	ќпределить количество проданных автомобилей за мес€ц?

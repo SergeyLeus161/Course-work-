@@ -7,8 +7,6 @@ using namespace std;
 class Car {
 	private:
 		string model;
-		string date_of_delivery;
-		string color;
 		int percent;
 		int price;
 	public:
@@ -19,6 +17,9 @@ class Car {
 		int get_price() {
 			return price;
 		}
+		
+		string date_of_delivery;
+		string color;
 };
 
 #endif

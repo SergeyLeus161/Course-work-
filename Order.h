@@ -15,6 +15,7 @@ class Order {
 		Client client;
 		int order_price();
 		bool sold;
+		string most_expensive();
 	protected:
 };
 
