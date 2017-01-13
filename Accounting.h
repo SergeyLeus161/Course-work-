@@ -9,7 +9,7 @@ using namespace std;
 
 class Accounting {
 	public:
-		std::stack<Order> orders;
+		stack<Order> orders;
 		Seller get_leader_seller();
 		int get_revenue();
 		string get_popular_brands();

@@ -7,14 +7,16 @@
 using namespace std;
 
 class Parking {
+	private:
+		stack<Car> cars;
 	public:
 		Parking() {
 			stack<Car> cs;
 			cars = cs;
 		}
 		stack<string> get_models();
-		stack<Car> cars;
 		void add_car(const Car& c);
+		void exclude(const Car& c);
 	protected:
 };
 

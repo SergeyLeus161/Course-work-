@@ -18,12 +18,23 @@ int main(int argc, char** argv) {
 	Seller s2("n2");
 	ss.push(s2);
 	Company company(ss);
+	Car car("b", "b", "c", 1, 2);
+	company.add_car(car);
+	
 	Client cl;
-	Order o1 = company.prepareOrder(cl);
-	Order o2 = company.prepareOrder(cl);
-	Order o3 = company.prepareOrder(cl);
-	Order o4 = company.prepareOrder(cl);
-	cout << o1.seller.name << o2.seller.name << o3.seller.name << o4.seller.name;
+	Order o1 = company.prepare_order(cl);
+	
+	Car car2("b", "b", "c", 1, 2);
+	Car car3("a", "b", "c", 1, 2);
+	o1.cars.push(car);
+	o1.cars.push(car2);	
+	o1.cars.push(car3);
+	company.save_draft(o1);
+	cout << "most popular is "
+		<< company.most_popular();
+//	cout << company.parking.get_models().size();
+//	company.checkout(o1);
+//	cout << company.parking.get_models().size();
 	return 0;
 }
 //1.	ќпределить количество проданных автомобилей за мес€ц?

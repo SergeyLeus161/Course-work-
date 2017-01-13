@@ -14,6 +14,7 @@ class Order {
 		stack<Car> cars;
 		Client client;
 		int order_price();
+		bool sold;
 	protected:
 };
 

@@ -6,6 +6,7 @@
 #include "Parking.h"
 #include "Order.h"
 #include "Seller.h"
+#include <iostream>
 
 using namespace std;
 
@@ -15,6 +16,10 @@ class Company
 		stack<Seller> sellers;
 		stack<Seller> next_sellers;
 		stack<string> cars_models;
+		stack<string> get_models(stack<Order> os);
+		stack<string> group(stack<string> ss);
+		string most_appeared(stack<string> grouped);
+		stack<Order> draft_orders;
 	public:
 		Company(stack<Seller> ss) {
 			sellers = ss;
@@ -22,13 +27,19 @@ class Company
 			next_sellers = nss;
 			stack<string> cms;
 			cars_models = cms;
+			stack<Order> dos;
+			draft_orders = dos;
 		}
 		
 		Accounting accounting;
 		Parking parking;
 		stack<string> sold_models();
 		void add_car(Car c);
-		Order prepareOrder(Client cl);
+		Order prepare_order(Client cl);
+		void save_draft(Order o);
+		void checkout(Order o);
+		string most_popular();
+		string most_selling();
 	protected:
 };
 
