@@ -78,7 +78,13 @@ string Company::most_popular() {
 		os.push(cos.top());
 		cos.pop();
 	}
-	return most_appeared(group(get_models(draft_orders)));
+	return most_appeared(group(get_models(cos)));
+}
+
+string Company::most_selling(){
+	stack<Order> os;
+	os = accounting.orders;
+	return most_appeared(group(get_models(os)));
 }
 
 stack<string> Company::get_models(stack<Order> os) {

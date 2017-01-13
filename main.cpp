@@ -25,13 +25,15 @@ int main(int argc, char** argv) {
 	Order o1 = company.prepare_order(cl);
 	
 	Car car2("b", "b", "c", 1, 2);
+	company.add_car(car2);
 	Car car3("a", "b", "c", 1, 2);
+	company.add_car(car3);
 	o1.cars.push(car);
 	o1.cars.push(car2);	
 	o1.cars.push(car3);
-	company.save_draft(o1);
-	cout << "most popular is "
-		<< company.most_popular();
+	company.checkout(o1);
+	cout << "most selling is "
+		<< company.most_selling();
 //	cout << company.parking.get_models().size();
 //	company.checkout(o1);
 //	cout << company.parking.get_models().size();
