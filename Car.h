@@ -18,7 +18,9 @@ class Car {
 			return price;
 		}
 		int get_interest() {
-			return price / percent * 100;
+			int interest;
+			interest = ((price / 100) * percent);
+			return interest;
 		}
 		
 		string date_of_delivery;

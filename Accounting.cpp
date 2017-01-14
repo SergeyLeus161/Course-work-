@@ -30,10 +30,7 @@ int Accounting::get_average_purchase_price() {
 }
 
 void Accounting::checkout(Order o) {
-	stack<Order> os;
-	os = orders;
-	os.push(o);
-	
+	orders.push(o);
 	
 	stack<Car> cs;
 	cs = o.cars;
@@ -45,34 +42,30 @@ void Accounting::checkout(Order o) {
 		cs.pop();
 	}
 	
-	string s_name = o.seller.name;
-	
-	stack<Seller> ss;
-	ss = sellers;
 	stack<Seller> tmp;
-	while(!ss.empty()) {
-		Seller s = ss.top();
-		if (s.name == s_name) {
-			s.salary = s.salary + interest;
+	while(!sellers.empty()) {
+		Seller &s = sellers.top();
+		if (s.name == o.seller.name) {
+			s.add_salary(interest);
 		}
 		tmp.push(s);
-		ss.pop();
+		sellers.pop();
 	}
 	sellers = tmp;
 }
 
 string Accounting::get_leader_seller() {
 	string leader = "none";
-	int max;
+	int max = 0;
 	stack<Seller> ss;
 	ss = sellers;
-	while(!ss.empty()) {
-		Seller s = ss.top();
+	while(!sellers.empty()) {
+		Seller s = sellers.top();
 		if (s.salary > max) {
 			max = s.salary;
 			leader = s.name;
 		}
-		ss.pop();
+		sellers.pop();
 	}
 	return leader;
 }

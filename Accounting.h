@@ -14,7 +14,6 @@ class Accounting {
 		string get_leader_seller();
 		int get_revenue();
 		string get_popular_brands();
-		string get_most_popular_color();
 		int get_average_purchase_price();
 		int get_sold_cars_count();
 		void checkout(Order o);
