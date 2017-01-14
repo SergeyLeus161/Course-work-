@@ -56,7 +56,7 @@ void Company::save_draft(Order o) {
 }
 
 void Company::checkout(Order o) {
-	accounting.orders.push(o);
+	accounting.checkout(o);
 	stack<Car> cs;
 	cs = o.cars;
 	
@@ -146,4 +146,8 @@ string Company::most_appeared(stack<string> grouped) {
 		grouped.pop();
 	}
 	return most;
+}
+
+string Company::get_leader_seller() {
+	return accounting.get_leader_seller();
 }

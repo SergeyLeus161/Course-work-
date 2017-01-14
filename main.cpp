@@ -13,26 +13,37 @@ using namespace std;
 
 int main(int argc, char** argv) {
 	stack<Seller> ss;
-	Seller s1("n1");
+	Seller s1("Vasya");
 	ss.push(s1);
-	Seller s2("n2");
+	Seller s2("Petya");
 	ss.push(s2);
+	
 	Company company(ss);
-	Car car("b", "b", "c", 1, 4);
-	company.add_car(car);
+	
+	Car bmw("BMW X5", "10/2016", "blue", 10, 40000);
+	company.add_car(bmw);
+	Car mb("MB SLK", "11/2016", "white", 15, 40000);
+	company.add_car(mb);
+	Car volvo("VOLVO", "01/2016", "gray", 10, 40000);
+	company.add_car(volvo);
 	
 	Client cl;
-	Order o1 = company.prepare_order(cl);
+	Order order1 = company.prepare_order(cl);
+	order1.cars.push(bmw);
+	order1.cars.push(mb);	
+	order1.cars.push(volvo);
 	
-	Car car2("b", "b", "e", 1, 2);
-	company.add_car(car2);
-	Car car3("a", "b", "c", 1, 3);
-	company.add_car(car3);
-	o1.cars.push(car);
-	o1.cars.push(car2);	
-	o1.cars.push(car3);
-	cout << "most expensive "
-		<< o1.most_expensive();
+	company.checkout(order1);
+	
+	Client c2;
+	Order order2 = company.prepare_order(c2);
+	
+	company.checkout(order2);
+	
+	cout << "leader "
+		<< company.get_leader_seller()
+		<< " "
+		<< order2.seller.name;
 	return 0;
 }
 //1.	ќпределить количество проданных автомобилей за мес€ц?

@@ -17,6 +17,9 @@ class Car {
 		int get_price() {
 			return price;
 		}
+		int get_interest() {
+			return price / percent * 100;
+		}
 		
 		string date_of_delivery;
 		string color;

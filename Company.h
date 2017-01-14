@@ -28,6 +28,7 @@ class Company
 			cars_models = cms;
 			stack<Order> dos;
 			draft_orders = dos;
+			accounting.sellers = ss;
 		}
 		
 		Accounting accounting;
@@ -39,6 +40,7 @@ class Company
 		void checkout(Order o);
 		string most_popular();
 		string most_selling();
+		string get_leader_seller();
 	protected:
 };
 

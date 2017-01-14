@@ -7,6 +7,7 @@ using namespace std;
 
 class Seller {
 	public:
+		int salary;
 		string name;
 		Seller() {
 		}
