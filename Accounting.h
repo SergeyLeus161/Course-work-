@@ -8,16 +8,19 @@
 using namespace std;
 
 class Accounting {
-	public:
+	private:
 		stack<Seller> sellers;
 		stack<Order> orders;
+	public:
+		Accounting(stack<Seller> &ss);
+		
 		string get_leader_seller();
 		int get_revenue();
 		string get_popular_brands();
 		int get_average_purchase_price();
 		int get_sold_cars_count();
-		void checkout(Order o);
-	protected:
+		void checkout(Order& o);
+		stack<Order> get_orders();
 };
 
 #endif

@@ -6,16 +6,16 @@
 using namespace std;
 
 class Seller {
-	public:
-		int salary = 0;
+	private:
+		int salary;
 		string name;
-		Seller() {
-		}
-		Seller(string n) {
-			name = n;
-		}
+	public:
+		Seller();
+		
+		Seller(string n);
 		void add_salary(int sum);
-	protected:
+		int get_salary();
+		string get_name();
 };
 
 #endif

@@ -9,14 +9,19 @@
 using namespace std;
 
 class Order {
-	public:
+	private:
 		Seller seller;
-		stack<Car> cars;
 		Client client;
+		stack<Car> cars;
+	public:
+		Order(Seller& s, Client& c);
+		
+		int car_count();
 		int order_price();
-		bool sold;
 		string most_expensive();
-	protected:
+		Seller& get_seller();
+		stack<Car> get_cars();
+		void add_car(const Car& c);
 };
 
 #endif

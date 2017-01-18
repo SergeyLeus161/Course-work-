@@ -12,10 +12,10 @@ using namespace std;
 int main(int argc, char** argv) {
 	stack<Seller> ss;
 	Seller s1("Vasya");
-	cout << s1.name << " salary is correct = " << (0 == s1.salary) << "\n";
+	cout << s1.get_name() << " salary is correct = " << (0 == s1.get_salary()) << "\n";
 	ss.push(s1);
 	Seller s2("Petya");
-	cout << s2.name << " salary is correct = " << (0 == s2.salary) << "\n";
+	cout << s2.get_name() << " salary is correct = " << (0 == s2.get_salary()) << "\n";
 	ss.push(s2);
 	
 	Company company(ss);
@@ -33,42 +33,44 @@ int main(int argc, char** argv) {
 	
 	Client cl;
 	Order order1 = company.prepare_order(cl);
-	order1.cars.push(bmw51);
-	order1.cars.push(mb);	
-	order1.cars.push(bmw52);
-	cout << order1.seller.name << " order price is correct = " << (110000 == order1.order_price()) << "\n";
+	order1.add_car(bmw51);
+	order1.add_car(mb);	
+	order1.add_car(bmw52);
+	cout << order1.get_seller().get_name() << " order price is correct = " << (110000 == order1.order_price()) << "\n";
 	
 	company.checkout(order1);
+	cout << order1.get_seller().get_name() << " salary is correct = " << (12000 == order1.get_seller().get_salary()) << "\n";
 	
 	Client c2;
 	Order order2 = company.prepare_order(c2);
-	order2.cars.push(bmw3);
-	cout << order2.seller.name << " order price is correct = " << (30000 == order2.order_price())<< "\n";
+	order2.add_car(bmw3);
+	cout << order2.get_seller().get_name() << " order price is correct = " << (30000 == order2.order_price())<< "\n";
 	
 	company.checkout(order2);
+	cout << order2.get_seller().get_name() << " salary is correct = " << (6000 == order2.get_seller().get_salary())<< "\n";
 	
 //1.	Определить количество проданных автомобилей за месяц?
-	cout << "company sold car count is correct = " << (4 == company.accounting.get_sold_cars_count()) << "\n";
+	cout << "company sold car count is correct = " << (4 == company.get_accounting().get_sold_cars_count()) << "\n";
 	
 //2.	Какова выручка предприятия за месяц?
-	cout << "company revenue is correct = " << (140000 == company.accounting.get_revenue()) << "\n";
+	cout << "company revenue is correct = " << (140000 == company.get_accounting().get_revenue()) << "\n";
 	
 	Client c3;
 	Order order3 = company.prepare_order(c3);
-	order3.cars.push(mb);
-	order3.cars.push(bmw3);
+	order3.add_car(mb);
+	order3.add_car(bmw3);
 	
 	company.save_draft(order3);
 	
 	Client c4;
 	Order order4 = company.prepare_order(c4);
-	order4.cars.push(mb);
+	order4.add_car(mb);
 	
 	company.save_draft(order4);
 	
 	Client c5;
 	Order order5 = company.prepare_order(c5);
-	order5.cars.push(mb);
+	order5.add_car(mb);
 	
 	company.save_draft(order5);
 	
@@ -80,14 +82,14 @@ int main(int argc, char** argv) {
 	cout << "most popular color is correct = " << ("pink" == company.most_selling_color()) << "\n";
 	
 //5.	Определить среднее значение стоимости покупки за месяц.
-	cout << "average purchase price is correct = " << (70000 == company.accounting.get_average_purchase_price()) << "\n";
+	cout << "average purchase price is correct = " << (70000 == company.get_accounting().get_average_purchase_price()) << "\n";
 	
 //6.	Какие модели автомобиля полностью проданы? По желанию клиента сформировать заказ на приобретение. Выдать информацию о стоимости самого дорого заказа: марка автомобиля, его цвет, дата поставки.
 	cout << "sold models list is correct = " << ("BMW X3, MB SLK, BMW X5" == company.sold_models()) << "\n";
 	cout << "most expensive car is correct = " << ("model=BMW X5, color=pink, date of delivery=01/2016" == order1.most_expensive()) << "\n";
 	
 //7.	Какой процент от продажи автомобилей добавлен к зарплате каждого из продавцов (размер процента определите самостоятельно). Определить продавца-лидера по итогам продаж за месяц.
-	cout << "seller leader is correct = " << (order1.seller.name == company.get_leader_seller()) << "\n";
+	cout << "seller leader is correct = " << (order1.get_seller().get_name() == company.get_leader_seller()) << "\n";
 	return 0;
 }
 //1.	Определить количество проданных автомобилей за месяц?

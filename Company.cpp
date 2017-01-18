@@ -1,5 +1,15 @@
 #include "Company.h"
 
+Company::Company(stack<Seller> ss) : accounting(ss) {
+	sellers = ss;
+	stack<Seller> nss;
+	next_sellers = nss;
+	stack<string> cms;
+	cars_models = cms;
+	stack<Order> dos;
+	draft_orders = dos;
+}
+
 string Company::sold_models() {
 	stack<string> p_models = parking.get_models();
 	stack<string> all;
@@ -17,7 +27,7 @@ string Company::sold_models() {
 		all = tmp;
 		p_models.pop();
 	}
-	
+
 	string res = "";
 	while(!all.empty()) {
 		res = res + all.top();
@@ -49,12 +59,10 @@ Order Company::prepare_order(Client cl) {
 		stack<Seller> s;
 		next_sellers = s;
 	}
-	Seller s = sellers.top();
+	Seller& s = sellers.top();
 	next_sellers.push(s);
 	sellers.pop();
-	Order o;
-	o.seller = s;
-	o.client = cl;
+	Order o(s, cl);
 	return o;
 }
 
@@ -62,39 +70,37 @@ void Company::save_draft(Order o) {
 	draft_orders.push(o);
 }
 
-void Company::checkout(Order o) {
+void Company::checkout(Order& o) {
 	accounting.checkout(o);
 	stack<Car> cs;
-	cs = o.cars;
-	
+	cs = o.get_cars();
+
 	stack<Car> tmp;
 	while (!cs.empty()) {
 		parking.exclude(cs.top());
 		cs.pop();
 	}
-	
-	o.sold = true;
 }
 
 string Company::most_popular_model() {
 	stack<Order> os;
 	os = draft_orders;
 	stack<Order> cos;
-	cos = accounting.orders;
+	cos = accounting.get_orders();
 	while (!cos.empty()) {
 		os.push(cos.top());
 		cos.pop();
 	}
-	
+
 	return most_appeared(group(get_models(os)));
 }
 
-string Company::most_selling_model(){
-	return most_appeared(group(get_models(accounting.orders)));
+string Company::most_selling_model() {
+	return most_appeared(group(get_models(accounting.get_orders())));
 }
 
 string Company::most_selling_color() {
-	return most_appeared(group(get_colors(accounting.orders)));
+	return most_appeared(group(get_colors(accounting.get_orders())));
 }
 
 stack<string> Company::get_colors(stack<Order> os) {
@@ -103,9 +109,9 @@ stack<string> Company::get_colors(stack<Order> os) {
 	stack<string> models;
 	while(!os_tmp.empty()) {
 		stack<Car> cs_tmp;
-		cs_tmp = os_tmp.top().cars;
+		cs_tmp = os_tmp.top().get_cars();
 		while(!cs_tmp.empty()) {
-			models.push(cs_tmp.top().color);
+			models.push(cs_tmp.top().get_color());
 			cs_tmp.pop();
 		}
 		os_tmp.pop();
@@ -119,7 +125,7 @@ stack<string> Company::get_models(stack<Order> os) {
 	stack<string> models;
 	while(!os_tmp.empty()) {
 		stack<Car> cs_tmp;
-		cs_tmp = os_tmp.top().cars;
+		cs_tmp = os_tmp.top().get_cars();
 		while(!cs_tmp.empty()) {
 			models.push(cs_tmp.top().get_model());
 			cs_tmp.pop();
@@ -147,7 +153,7 @@ stack<string> Company::group(stack<string> ss) {
 		}
 		source.pop();
 	}
-	
+
 	return grouped;
 }
 
@@ -159,12 +165,12 @@ string Company::most_appeared(stack<string> grouped) {
 	while(!grouped.empty()) {
 		string s = grouped.top();
 		if (s == last) {
-			current = current + 1;
+			current += 1;
 		} else {
 			last = s;
 			current = 1;
 		}
-		
+
 		if (current > max) {
 			most = last;
 			max = current;
@@ -176,4 +182,8 @@ string Company::most_appeared(stack<string> grouped) {
 
 string Company::get_leader_seller() {
 	return accounting.get_leader_seller();
+}
+
+Accounting Company::get_accounting() {
+	return accounting;
 }
