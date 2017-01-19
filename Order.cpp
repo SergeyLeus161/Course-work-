@@ -7,7 +7,7 @@ int Order::car_count() {
 }
 
 int Order::order_price() {
-	int price;
+	int price = 0;
 	stack<Car> cs;
 	cs = cars;
 	while(!cs.empty()) {

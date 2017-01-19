@@ -6,7 +6,7 @@ Accounting::Accounting(stack<Seller> &ss) : sellers(), orders() {
 }
 
 int Accounting::get_sold_cars_count() {
-	int sold(0);
+	int sold = 0;
 	stack<Order> os;
 	os = orders;
 	while (!os.empty()) {
@@ -17,12 +17,12 @@ int Accounting::get_sold_cars_count() {
 }
 
 int Accounting::get_revenue() {
-	int revenue;
+	int revenue = 0;
 	stack<Order> os;
 	os = orders;
 	while (!os.empty()) {
 		Order o = os.top();
-		revenue += o.order_price();
+		revenue = revenue + o.order_price();
 		os.pop();
 	}
 	return revenue;
