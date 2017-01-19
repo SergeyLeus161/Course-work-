@@ -18,6 +18,7 @@ class Car {
 		int get_interest();
 		string get_date_of_delivery();
 		string get_color();
+		int get_percent();
 };
 
 #endif

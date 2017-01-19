@@ -21,6 +21,10 @@ int Car::get_interest() {
 	return interest;
 }
 
+int Car::get_percent() {
+	return percent;	
+}
+
 string Car::get_date_of_delivery() {
 	return date_of_delivery;
 }
